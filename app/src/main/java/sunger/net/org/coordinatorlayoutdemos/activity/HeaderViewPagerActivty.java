@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sunger.net.org.coordinatorlayoutdemos.R;
+import sunger.net.org.coordinatorlayoutdemos.widget.ScrollFeedbackRecyclerView;
 import sunger.net.org.coordinatorlayoutdemos.adapter.MainTabAdapter;
 import sunger.net.org.coordinatorlayoutdemos.fragment.NestedscrollFragment;
 import sunger.net.org.coordinatorlayoutdemos.fragment.RecyclerFragment;
@@ -21,7 +22,7 @@ import sunger.net.org.coordinatorlayoutdemos.utils.Utils;
 /**
  * Created by sunger on 15/12/15.
  */
-public class HeaderViewPagerActivty extends BaseCompatActivity implements SwipeRefreshLayout.OnRefreshListener, AppBarLayout.OnOffsetChangedListener {
+public class HeaderViewPagerActivty extends BaseCompatActivity implements SwipeRefreshLayout.OnRefreshListener, AppBarLayout.OnOffsetChangedListener, ScrollFeedbackRecyclerView.Callbacks{
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
     private MainTabAdapter mAdapter;
@@ -113,5 +114,17 @@ public class HeaderViewPagerActivty extends BaseCompatActivity implements SwipeR
     protected void onPause() {
         super.onPause();
         appBarLayout.removeOnOffsetChangedListener(this);
+    }
+
+    @Override
+    public boolean isAppBarCollapsed() {
+        final int appBarVisibleHeight = (int) (appBarLayout.getY() + appBarLayout.getHeight());
+        final int toolbarHeight = toolbar.getHeight();
+        return (appBarVisibleHeight == toolbarHeight);
+    }
+
+    @Override
+    public void setExpanded(boolean expanded) {
+        appBarLayout.setExpanded(expanded, true);
     }
 }
