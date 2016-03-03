@@ -1,6 +1,7 @@
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-     android:id="@+id/recyclerview"
+<?xml version="1.0" encoding="utf-8"?>
+<sunger.net.org.coordinatorlayoutdemos.widget.ScrollFeedbackRecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recyclerview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
-
-
+    android:layout_height="match_parent" >
+</sunger.net.org.coordinatorlayoutdemos.widget.ScrollFeedbackRecyclerView>
