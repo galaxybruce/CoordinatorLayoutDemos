@@ -11,6 +11,7 @@
         android:layout_gravity="center_horizontal"
         android:background="#ff0000"
         android:gravity="center"
+        android:fitsSystemWindows="true"
         android:text="Top Fix Part"
         android:textColor="@color/white" />
 
