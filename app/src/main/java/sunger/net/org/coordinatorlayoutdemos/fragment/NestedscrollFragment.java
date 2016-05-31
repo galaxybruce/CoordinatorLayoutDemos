@@ -21,10 +21,38 @@ public class NestedscrollFragment extends Fragment {
     private ArrayList<String> stringArrayList;
     private RecyclerView recyclerView;
     private RecyclerAdapter adapter;
+
+    private NestedScrollView mNestedScrollView;
+
+    private ScrollFeedbackRecyclerView.Callbacks mCallbacks;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_nestedscroll, container, false);
+
+        if(getContext() instanceof ScrollFeedbackRecyclerView.Callbacks)
+        {
+            mCallbacks = (ScrollFeedbackRecyclerView.Callbacks)getContext();
+        }
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mNestedScrollView = (NestedScrollView)view.findViewById(R.id.nest_scrollview);
+        mNestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if(scrollY == 0 && oldScrollY > scrollY) {
+                    Log.e("aaaaaaaaaaaaaaaaaaaaa", "index 0 visible");
+                    if(mCallbacks.isAppBarCollapsed()) {
+                        mCallbacks.setExpanded(true);
+                    }
+                }
+            }
+        });
     }
 }
