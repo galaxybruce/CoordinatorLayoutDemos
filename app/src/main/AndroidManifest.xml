@@ -29,6 +29,13 @@
         <activity
             android:name=".activity.HeaderViewPagerActivty"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+            
+        <activity
+            android:name=".activity.HeaderViewPagerActivty1"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activity.HeaderViewPagerActivty2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
     </application>
 
