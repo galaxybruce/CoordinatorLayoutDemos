@@ -117,6 +117,10 @@ public class MainActivity extends BaseCompatActivity
             startActivity(new Intent(this, HideToolBarActivity.class));
         } else if (id == R.id.nav_viewpager) {
             startActivity(new Intent(this, HeaderViewPagerActivty.class));
+        } else if (id == R.id.nav_viewpager1) {
+            startActivity(new Intent(this, HeaderViewPagerActivty1.class));
+        } else if (id == R.id.nav_viewpager2) {
+            startActivity(new Intent(this, HeaderViewPagerActivty2.class));
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
